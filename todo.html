@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO List</title>
+    <style>
+        body{
+            text-align: center;
+            background-color:white;
+        }
+        h2{
+            font-size: 60px;
+            text-align: center;
+        }
+        input{
+
+            padding: 10px;
+            width: 400px;
+            border: none;
+            background-color: gainsboro;
+        }
+        button{
+            margin-left: 20px;
+            padding: 10px;
+            width: 100px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-weight: bolder;
+            background-color: antiquewhite;
+            border: none;
+        }
+        .container{
+            margin: 200px;
+        }
+        p{
+            font-weight: bolder;
+            font-size: 20px;
+            background-color:gainsboro;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>TO-DO List</h2>
+        <input type="text" id="text">
+        <button onclick="change()">Add</button>
+        <div id="ParentDiv">
+
+        </div>
+    </div>
+    <script>
+        let change=()=>{
+            let data=document.getElementById("text").value
+            console.log(data)
+            let newElement = document.createElement('p')
+            let newDiv = document.getElementById("ParentDiv")
+            newDiv.appendChild(newElement)
+            let text=document.createTextNode(data)
+            newElement.appendChild(text)
+            let deleteButton=document.createElement('button')
+            newElement.appendChild(deleteButton)
+            deleteButton.addEventListener("click",()=>{
+                newElement.remove()
+            })
+            let deleteText=document.createTextNode('Delete')
+            deleteButton.appendChild(deleteText)
+        }
+    </script>
+</body>
+</html>
